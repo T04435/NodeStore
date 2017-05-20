@@ -16,11 +16,29 @@ body {
   color:$black;
 }
 
-h1, h2, h3, h4, h5, h6, {
-  font-size: 5rem;
+h1, h2, h3, h4, h5, h6{
   font-family: 'Panama';
   font-weight: 600;
   letter-spacing:-1px;
+}
+
+h1{
+  font-size: 5rem;
+}
+h2{
+  font-size: 4rem;
+}
+h3{
+  font-size: 3rem;
+}
+h4{
+  font-size: 2rem;
+}
+h5{
+  font-size: 1.25rem;
+}
+h6{
+  font-size: 0.95rem;
 }
 
 a {

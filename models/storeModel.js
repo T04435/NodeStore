@@ -1,17 +1,19 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const slug = require('slugs');
 
+const slug = require('slugs');
 
 /**
  * Define Store DB Table
  * ____________________________________
  * |          storeSchema             |
  * ------------------------------------
- * |         name* : String
- * |         slug : String
- * |         description : String
- * |         tags: String Array
+ * |        name
+ * |        slug
+ * |        description
+ * |        tags
+ * |        location
+ * |        address
  */
 const storeSchema = new mongoose.Schema({
 	name: {
@@ -20,11 +22,25 @@ const storeSchema = new mongoose.Schema({
 		required: 'Please enter a store name!'
 	},
 	slug: String,
-	description: {
+	desc: {
 		type: String,
 		trim: true
 	},
-	tags: [String]
+	tags: [String],
+	location: {
+		type: {
+			type: String,
+			default: 'Point'
+		},
+		coordinates: [{
+			type: Number,
+			required: 'You must add coordinates!'
+		}],
+		address: {
+			type: String,
+			required: 'You must add address!'
+		}
+	}
 });
 
 storeSchema.pre('save', function (next) {
